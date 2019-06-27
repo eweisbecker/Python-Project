@@ -5,3 +5,6 @@ def home(request):
 
 def login(request):
     return render(request, 'project_app/home.html')
+
+def dashboard(request):
+    return render(request, 'project_app/user_dash.html')

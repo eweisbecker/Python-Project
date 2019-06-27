@@ -108,7 +108,9 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_URL = 'layout'
 
-LOGIN_REDIRECT_URL = '/layout.html'
+LOGIN_REDIRECT_URL = '/dashboard'
+
+LOGOUT_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='649133407205-fat5lslth874qdgvac0kc800fnlslv4g.apps.googleusercontent.com' 
 
