@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/dashboard">Get Your Booty</a>
+            <a href="/dashboard">Dashboard</a>
+            <a>Messages</a>
+            <a>Settings</a>
+            <a href="/logout">Log Out</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>{{ this_project.title }}</h2>
+            </div>
+            <div class="col-lg-3">
+                <h5>Countdown: </h5>
+            </div>
+            <div class="col-lg-3">
+                <h5>Deadline: {{ this_project.deadline }}</h5>
+            </div>
+        </div>
+        <div class="col-lg-10" id="project_info">
+            <div class="row">
+                <h6>Description: {{ this_project.description }}</h6>
+                <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add a Task</button> -->
+            </div>
+            <div class="row">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>To Do</th>
+                        <th>In Progress</th>
+                        <th>Done</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

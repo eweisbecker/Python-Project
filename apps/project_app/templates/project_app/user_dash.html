@@ -10,9 +10,77 @@
     <link rel="stylesheet" href="{% static 'project_app/css/style.css' %}">
 </head>
 <body>
-    <div >
-        <h1>DID IT WORK!>!>!>!>>!>!>!!?!!?!?!?!?</h1>
-        <a href="/logout">Log Out</a>
+    <div>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/dashboard">Get Your Booty</a>
+                <a href="/dashboard">Dashboard</a>
+                <a>Messages</a>
+                <a>Settings</a>
+                <a href="/logout">Log Out</a>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                {% if user.is_authenticated %}
+                <h2>{{ user.username}}'s Dashboard</h2>
+                {% else %}
+                <h2>User ID: {{ request.session.id }}</h2>
+                {% endif %}
+                <a href="/new_project" class="btn btn-lg btn-success">Create New Project</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-10"></div>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td colspan="10"><h5>Current Projects</h5></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Project Name</td>
+                            <th>Collaborators</th>
+                            <th>Tasks</td>
+                        </tr>
+                        {% for project in my_projects %}
+                        <tr>
+                            <td><a href="/view_project/{{project.id}}">{{ project.title }}</a></td>
+                            <td>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-10"></div>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td colspan="10"><h5>Past Projects</h5></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Collaborators</th>
+                            <th>Tasks</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

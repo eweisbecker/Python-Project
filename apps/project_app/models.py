@@ -1,5 +1,8 @@
 from __future__ import unicode_literals
 from django.db import models
+from django.utils import timezone
+from datetime import datetime 
+import re
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -16,7 +19,9 @@ class User(BaseModel):
 class Project(BaseModel):
     title = models.CharField(max_length=50)
     description = models.TextField()
-    members = models.ForeignKey(User, related_name="joined_group")
+    deadline = models.DateField(default=timezone.now)
+    done = models.BooleanField(default=False)
+    members = models.ManyToManyField(User, related_name="joined_group")
     creator = models.ForeignKey(User, related_name="created_project")
 
 class Task(BaseModel):

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Create New Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'project_app/css/style.css' %}">
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/dashboard">Get Your Booty</a>
+                <a href="/dashboard">Dashboard</a>
+                <a>Messages</a>
+                <a>Settings</a>
+                <a href="/logout">Log Out</a>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h2 class="col-lg-10">Create a new project</h2>
+            <form class="col-lg-10" id="new_project_form" action="/create_project" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="nameInput">Project Name</label>
+                    <input type="text" class="form-control" name="name_input" id="nameInput" placeholder="Project name must be at least 2 character">
+                </div>
+                <div class="form-group">
+                    <label for="descriptionInput">Description (optional)</label>
+                    <textarea class="form-control" name="description_input" id="descriptionInput" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="deadlineInput">Deadline</label>
+                    <br>
+                    <input type="date" name="deadline_input">
+                </div>
+                <button type="submit" class="btn btn-primary" id="new_proj_button" disabled>Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'project_app/js/script.js' %}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
